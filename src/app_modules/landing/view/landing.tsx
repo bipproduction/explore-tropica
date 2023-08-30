@@ -41,7 +41,7 @@ export default function ViewLanding() {
                         <Title>Embark on a Journey to Tropica</Title>
                         <Box pos={"relative"}>
                             <Text maw={360}>
-                                Feel free to mix and match these phrases to create a captivating landing page for your website, Explore Tropica. Enjoy your creative process!
+                            Exploring Tropica: Your Gateway to a Tropical Wonderland
                             </Text>
                         </Box>
                         <Group spacing={"md"}>

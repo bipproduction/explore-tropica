@@ -8,7 +8,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         {/* Open Graph Meta Properties */}
         <meta property="og:title" content="EXPLORE TROPICA" />
-        <meta property="og:description" content="Feel free to mix and match these phrases to create a captivating landing page for your website, Explore Tropica. Enjoy your creative process!" />
+        <meta property="og:description" content="Exploring Tropica: Your Gateway to a Tropical Wonderland" />
         <meta property="og:image" content={img} />
         <meta property="og:url" content={url} />
         <meta property="og:type" content="website" />
