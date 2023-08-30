@@ -11,6 +11,7 @@ export default function ViewNavHor() {
                     <UnstyledButton>Contact Us</UnstyledButton>
                     <UnstyledButton>Blog</UnstyledButton>
                 </Flex>
+                
             </Grid.Col>
             <Grid.Col span={"content"} p={"md"}>
                 <TextInput placeholder="search" icon={<MdSearch />} radius={100} />
