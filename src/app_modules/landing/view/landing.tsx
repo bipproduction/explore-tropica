@@ -1,5 +1,4 @@
 'use client'
-
 import { BackgroundImage, Box, Burger, Button, Drawer, Flex, Grid, Group, MediaQuery, Paper, Stack, Text, Title } from "@mantine/core"
 import ViewNavHor from "./nav_hor"
 import { useState } from "react"
@@ -11,10 +10,13 @@ export default function ViewLanding() {
     const [client, setClient] = useState(false)
     const matches = useMediaQuery('(min-width: 56.25em)');
 
+
     useShallowEffect(() => {
         if (window) setClient(true)
     }, [])
-    return (<>
+
+    if(!client) return <></>
+    return (<Box>
         <Stack>
             <BackgroundImage src="./images/landing.png" h={"100vh"} mih={720}>
                 <Stack>
@@ -57,7 +59,7 @@ export default function ViewLanding() {
                 <ViewNavVer />
             </Stack>
         </Drawer>
-    </>)
-    
+    </Box>)
+
 
 }
