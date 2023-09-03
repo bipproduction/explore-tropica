@@ -1,7 +1,7 @@
 'use client';
 
 import { CacheProvider } from '@emotion/react';
-import { useEmotionCache, MantineProvider } from '@mantine/core';
+import { useEmotionCache, MantineProvider, Notification } from '@mantine/core';
 import { useServerInsertedHTML } from 'next/navigation';
 
 export default function RootStyleRegistry({ children }: { children: React.ReactNode }) {
@@ -18,14 +18,19 @@ export default function RootStyleRegistry({ children }: { children: React.ReactN
   ));
 
   return (
-    <CacheProvider value={cache}>
-      <MantineProvider withGlobalStyles withNormalizeCSS theme={{
-        fontFamily: "Geneva",
-        fontFamilyMonospace: "Monaco, Courier, monospace",
-        headings: { fontFamily: "Impact" },
-      }}>
-        {children}
-      </MantineProvider>
-    </CacheProvider>
+    <html lang='en-US'>
+      <head />
+      <body suppressHydrationWarning={true}>
+        <CacheProvider value={cache}>
+          <MantineProvider withGlobalStyles withNormalizeCSS theme={{
+            fontFamily: "Geneva",
+            fontFamilyMonospace: "Monaco, Courier, monospace",
+            headings: { fontFamily: "Impact" },
+          }}>
+            {children}
+          </MantineProvider>
+        </CacheProvider>
+      </body>
+    </html>
   );
 }

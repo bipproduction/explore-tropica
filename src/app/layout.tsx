@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content="exploretropica.com" />
       </head>
-      <body>
+      <body suppressHydrationWarning={true}>
         <RootStyleRegistry>{children}</RootStyleRegistry>
       </body>
     </html>
