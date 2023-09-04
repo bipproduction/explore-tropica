@@ -25,7 +25,7 @@ export default function ViewGaleryUpload() {
                     const fd = new FormData()
                     fd.append('file', files[0])
                     const upl = await funImageUpload({ formData: fd })
-                    if (!upl) return toast("ERROR file terlalu besar"), setIsError(true)
+                    if (!upl) return toast("ERROR file terlalu besar"), setIsError(true), setloading(false)
                     setloading(false)
                     toast("success")
                     const data = upl.data
