@@ -28,7 +28,7 @@ export default function ViewGaleryUpload() {
 
             }}
             onReject={(files) => console.log('rejected files', files)}
-            maxSize={5 * 1024 * 1024}
+            // maxSize={5 * 1024 * 1024}
             accept={IMAGE_MIME_TYPE}
         >
             <Group position="center" spacing="xl" style={{ minHeight: rem(220), pointerEvents: 'none' }}>
