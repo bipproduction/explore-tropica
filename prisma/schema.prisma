@@ -28,3 +28,12 @@ model Content {
   createdAt DateTime? @default(now())
   updatedAt DateTime? @updatedAt
 }
+
+model ImageGalery {
+  id        String    @id @default(cuid())
+  name      String?
+  ext       String?
+  active    Boolean   @default(true)
+  createdAt DateTime? @default(now())
+  updatedAt DateTime  @updatedAt
+}

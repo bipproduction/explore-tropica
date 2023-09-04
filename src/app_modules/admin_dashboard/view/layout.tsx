@@ -3,7 +3,7 @@ import { ActionIcon, AppShell, Box, Burger, Button, Center, Flex, Group, Header,
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { MdHome, MdList, MdLogout, MdPlusOne, MdRemoveRedEye } from 'react-icons/md'
+import { MdHome, MdImage, MdList, MdLogout, MdPlusOne, MdRemoveRedEye } from 'react-icons/md'
 import { notifications } from '@mantine/notifications';
 import { funLogout } from "@/app_modules/login/fun/logout";
 
@@ -42,6 +42,10 @@ export default function ViewAdminDashboardLayout({ children, userId }: { childre
                 <NavLink icon={<MdList size={24} />} label={"List Content"} onClick={() => {
                     setOpened(false)
                     router.push("/explore-admin/content")
+                }} />
+                <NavLink icon={<MdImage size={24} />} label={"Image Galery"} onClick={() => {
+                    setOpened(false)
+                    router.push("/explore-admin/galery")
                 }} />
             </Navbar.Section>
             <Navbar.Section>

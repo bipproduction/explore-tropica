@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import fs from 'fs'
+import sharp from 'sharp'
 
 export function GET(req: Request, { params }: any) {
     try {

@@ -30,7 +30,7 @@ export default function ViewLanding({ data }: { data: any }) {
                             <Flex>
                                 <Flex justify={"center"} align={"center"} gap={"md"}>
                                     {!matches && <Burger onClick={() => setOpen(!open)} opened={open} />}
-                                    <Title>Explore Troica</Title>
+                                    <Title>Explore Tropica</Title>
                                 </Flex>
                                 <Box>
                                     {matches && <ViewNavHor />}

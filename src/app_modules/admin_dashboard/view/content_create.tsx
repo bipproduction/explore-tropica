@@ -7,11 +7,13 @@ import Underline from '@tiptap/extension-underline';
 import TextAlign from '@tiptap/extension-text-align';
 import Superscript from '@tiptap/extension-superscript';
 import SubScript from '@tiptap/extension-subscript';
-import { Box, Button, Group, Image, Stack, TextInput, Title } from '@mantine/core';
+import { ActionIcon, Box, Button, Flex, Group, Image, Stack, TextInput, Title } from '@mantine/core';
 import toast from 'react-simple-toasts';
 import _ from 'lodash';
 import { useState } from 'react';
 import { funContentCreate } from '../fun/content_create';
+import { MdAdd } from 'react-icons/md';
+import ViewModalListImage from './modal_add_list_image';
 
 export default function ViewContentEditor() {
     const [title, setTitle] = useState<string | null>(null)
@@ -55,7 +57,10 @@ export default function ViewContentEditor() {
             <Title>Create New Content</Title>
             <Title order={3}>Title</Title>
             <TextInput label={"title"} placeholder='Title' onChange={(val) => setTitle(val.target.value)} />
-            <TextInput onChange={(val) => setUrlImage(val.target.value)} label={"url image"} placeholder='url gambar' />
+            <Flex align={"end"}>
+                <TextInput w={300} onChange={(val) => setUrlImage(val.target.value)} label={"url image"} placeholder='url gambar' />
+                <ViewModalListImage />
+            </Flex>
             {urlImage && <Box pos={"relative"} maw={300}>
                 <Image maw={"100%"} src={urlImage} alt='' />
             </Box>}
