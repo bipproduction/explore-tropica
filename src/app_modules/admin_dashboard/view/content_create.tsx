@@ -58,11 +58,13 @@ export default function ViewContentEditor() {
             <Title order={3}>Title</Title>
             <TextInput label={"title"} placeholder='Title' onChange={(val) => setTitle(val.target.value)} />
             <Flex align={"end"}>
-                <TextInput w={300} onChange={(val) => setUrlImage(val.target.value)} label={"url image"} placeholder='url gambar' />
-                <ViewModalListImage />
+                {/* <TextInput w={300} onChange={(val) => setUrlImage(val.target.value)} label={"url image"} placeholder='url gambar' /> */}
+                <ViewModalListImage onSelected={(val) => {
+                    setUrlImage(`/img/${val}`)
+                }} />
             </Flex>
             {urlImage && <Box pos={"relative"} maw={300}>
-                <Image maw={"100%"} src={urlImage} alt='' />
+                <Image maw={"100%"} src={`${urlImage}`} alt='' />
             </Box>}
             <Title order={3}>Content</Title>
             <RichTextEditor editor={editor} >

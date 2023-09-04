@@ -1,6 +1,7 @@
 'use server'
 import prisma from '@/app_modules/bin/prisma'
 import fs from 'fs'
+import sharp from 'sharp'
 import { v4 } from 'uuid'
 
 
@@ -17,7 +18,9 @@ export async function funImageUpload({ formData }: { formData: FormData }) {
         }
     })
 
-    fs.writeFileSync(`./public/images/${dataImg.id}.${fileExtension}`, buffer)
+    const img = await sharp(buffer).resize(200).toBuffer()
+
+    fs.writeFileSync(`./public/images/${dataImg.id}.${fileExtension}`, img)
     return {
         success: true,
         message: "success",
