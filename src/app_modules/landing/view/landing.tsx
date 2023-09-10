@@ -1,12 +1,13 @@
 'use client'
-import { ActionIcon, BackgroundImage, Box, Burger, Button, Center, Drawer, Flex, Grid, Group, Image, MediaQuery, Paper, SimpleGrid, Space, Stack, Text, Title, UnstyledButton } from "@mantine/core"
+import { ActionIcon, BackgroundImage, Box, Burger, Button, Center, Drawer, Flex, Grid, Group, Image, MediaQuery, Paper, Popover, SimpleGrid, Space, Stack, Text, Title, UnstyledButton } from "@mantine/core"
 import ViewNavHor from "./nav_hor"
 import { useState } from "react"
-import { useMediaQuery, useShallowEffect } from "@mantine/hooks"
+import { useHover, useMediaQuery, useShallowEffect } from "@mantine/hooks"
 import ViewNavVer from "./nav_ver"
-import { MdEmail, MdImage, MdWhatsapp } from "react-icons/md"
+import { MdEdit, MdEmail, MdImage, MdWhatsapp } from "react-icons/md"
 import { useRouter } from "next/navigation"
 import ViewGalery from "./galery"
+import { WidgetEditable } from "@/app_modules/widget"
 
 export default function ViewLanding({ data }: { data: any }) {
     const [open, setOpen] = useState(false)
@@ -26,17 +27,15 @@ export default function ViewLanding({ data }: { data: any }) {
             <Stack spacing={0} top={0}>
                 <BackgroundImage src="./images/landing.png" h={"100vh"} mih={720} >
                     <Stack spacing={0}>
-                        <Box pos={"sticky"} w={"100%"} top={0} style={{ zIndex: 10 }} >
-                            <Flex>
-                                <Flex justify={"center"} align={"center"} gap={"md"}>
-                                    {!matches && <Burger onClick={() => setOpen(!open)} opened={open} />}
-                                    <Title>Explore Tropica</Title>
-                                </Flex>
-                                <Box>
-                                    {matches && <ViewNavHor />}
-                                </Box>
-                            </Flex>
-                        </Box>
+                        <Flex p={"md"} pos={"sticky"} w={"100%"} top={0} style={{ zIndex: 10 }} justify={"space-between"} align={"center"} >
+                            {!matches && <Burger opened={open} onClick={() => setOpen(!open)} />}
+                            <WidgetEditable data="Tropica Explore">
+                                {(val) => <Title>{val}</Title>}
+                            </WidgetEditable>
+                            <Box>
+                                {matches && <ViewNavHor />}
+                            </Box>
+                        </Flex>
                         <Stack spacing={"lg"} pos={"relative"} top={200} p={"lg"}>
                             <Text size={24}>Best Travel Agency</Text>
                             <Title style={{

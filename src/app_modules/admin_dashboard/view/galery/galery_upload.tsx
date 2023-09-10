@@ -1,12 +1,12 @@
-import { Group, Notification, Stack, Text, rem } from '@mantine/core';
-import { Dropzone, DropzoneProps, IMAGE_MIME_TYPE } from '@mantine/dropzone';
-import { useState } from 'react';
-import { TbPhoto, TbUpload, TbX } from 'react-icons/tb'
-import { funImageUpload } from '../../fun/image_upload';
-import _ from 'lodash';
-import toast from 'react-simple-toasts';
-import { useHookstate } from '@hookstate/core';
 import { val_listIamage } from '@/app_modules/global/val/list_image';
+import { useHookstate } from '@hookstate/core';
+import { Group, Notification, Stack, Text, rem } from '@mantine/core';
+import { Dropzone, IMAGE_MIME_TYPE } from '@mantine/dropzone';
+import _ from 'lodash';
+import { useState } from 'react';
+import { TbPhoto, TbUpload, TbX } from 'react-icons/tb';
+import toast from 'react-simple-toasts';
+import { funImageUpload } from '../../fun/image_upload';
 export default function ViewGaleryUpload() {
     const [loading, setloading] = useState(false)
     const listImage = useHookstate(val_listIamage)
