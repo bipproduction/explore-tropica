@@ -7,7 +7,7 @@ import { MdHome, MdImage, MdList, MdLogout, MdPlusOne, MdRemoveRedEye } from 're
 import { notifications } from '@mantine/notifications';
 import { funLogout } from "@/app_modules/login/fun/logout";
 
-export default function ViewAdminDashboardLayout({ children, userId }: { children: any, userId: any }) {
+export default function ViewAdminDashboardLayout({ children, userId, isEditable }: { children: any, userId: any, isEditable: boolean }) {
     const [opened, setOpened] = useState(false);
     const router = useRouter()
     return <AppShell

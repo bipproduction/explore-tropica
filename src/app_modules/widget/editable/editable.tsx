@@ -4,11 +4,28 @@ import { ActionIcon, Box, Flex, Popover } from "@mantine/core";
 import { MdEdit } from "react-icons/md";
 import WidgetEditor from "../editor/editor";
 
-export default function WidgetEditable({ children, data }: { children: (val: string) => any, data: string }) {
+export default function WidgetEditable({ children, data, onSave, option }:
+    {
+        children: (val: string) => any,
+        data: string,
+        onSave: (text?: string, html?: string) => void,
+        option?: {
+            heading?: boolean,
+            color?: boolean,
+            bold?: boolean,
+            list?: boolean,
+            alig?: boolean,
+            link?: boolean
+        },
+    }) {
     const { value: isEdit, set: setEdit } = useHookstate(val_edit_mode)
     return <Box >
         <Flex align={"center"} gap={"lg"}>
-            {children(data)}
+            <Box style={{
+                border: isEdit?"2px dashed gray":""
+            }}>
+                {children(data)}
+            </Box>
             {isEdit && <Popover trapFocus withArrow>
                 <Popover.Target>
                     <ActionIcon bg={"white"} radius={100}>
@@ -16,7 +33,7 @@ export default function WidgetEditable({ children, data }: { children: (val: str
                     </ActionIcon>
                 </Popover.Target>
                 <Popover.Dropdown>
-                    <WidgetEditor content={data}/>
+                    <WidgetEditor option={option} content={data} onSave={onSave} />
                 </Popover.Dropdown>
             </Popover>}
         </Flex>

@@ -37,3 +37,12 @@ model ImageGalery {
   createdAt DateTime? @default(now())
   updatedAt DateTime  @updatedAt
 }
+
+model LandingPage {
+  id        String    @id @default(cuid())
+  title     String?
+  des       String?   @db.Text
+  footer    String?   @db.Text
+  createdAt DateTime? @default(now())
+  upadtedAt DateTime? @updatedAt
+}

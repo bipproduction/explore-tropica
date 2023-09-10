@@ -8,13 +8,17 @@ import { MdEdit, MdEmail, MdImage, MdWhatsapp } from "react-icons/md"
 import { useRouter } from "next/navigation"
 import ViewGalery from "./galery"
 import { WidgetEditable } from "@/app_modules/widget"
+import { funUpsertLanding } from "@/app_modules/fun/upsert_landing"
+import toast from "react-simple-toasts"
+import parser from 'html-react-parser'
 
-export default function ViewLanding({ data }: { data: any }) {
+export default function ViewLanding({ data, isEditable, landing }: { data: any, isEditable: boolean, landing: any }) {
     const [open, setOpen] = useState(false)
     const [client, setClient] = useState(false)
     const matches = useMediaQuery('(min-width: 56.25em)');
     const [listContent, setListContent] = useState<any[] | null>(data)
     const router = useRouter()
+    const [landingVal, setLandingVal] = useState<any | null>(landing)
 
     useShallowEffect(() => {
         if (window) setClient(true)
@@ -29,15 +33,53 @@ export default function ViewLanding({ data }: { data: any }) {
                     <Stack spacing={0}>
                         <Flex p={"md"} pos={"sticky"} w={"100%"} top={0} style={{ zIndex: 10 }} justify={"space-between"} align={"center"} >
                             {!matches && <Burger opened={open} onClick={() => setOpen(!open)} />}
-                            <WidgetEditable data="Tropica Explore">
+                            <WidgetEditable data={landingVal?.title ?? ""} onSave={async (text, html) => {
+                                const up = await funUpsertLanding({
+                                    title: text
+                                })
+
+                                console.log(up)
+                                if (!up.success) return toast(`${up.data}`)
+                                setLandingVal({
+                                    ...landingVal,
+                                    title: up.data.title
+                                })
+                                return toast(up.message)
+                            }}>
                                 {(val) => <Title>{val}</Title>}
                             </WidgetEditable>
                             <Box>
-                                {matches && <ViewNavHor />}
+                                {matches && <ViewNavHor isEditable={isEditable} />}
                             </Box>
                         </Flex>
                         <Stack spacing={"lg"} pos={"relative"} top={200} p={"lg"}>
-                            <Text size={24}>Best Travel Agency</Text>
+                            <WidgetEditable
+                                option={{
+                                    heading: true,
+                                    alig: true,
+                                    color: true,
+                                    link: true,
+
+                                }}
+                                data={landingVal?.des ?? ""}
+                                onSave={async (text, html) => {
+                                    const up = await funUpsertLanding({
+                                        des: html
+                                    })
+                                    if (!up.success) return toast("error")
+                                    setLandingVal({
+                                        ...landingVal,
+                                        des: up.data.des
+                                    })
+                                    return toast("success")
+                                }}>
+                                {
+                                    (val) => <Box>
+                                        {parser(val)}
+                                    </Box>
+                                }
+                            </WidgetEditable>
+                            {/* <Text size={24}>Best Travel Agency</Text>
                             <Title style={{
                                 overflowWrap: "break-word"
                             }} size={64}>EXPLORE TROPICA</Title>
@@ -46,7 +88,7 @@ export default function ViewLanding({ data }: { data: any }) {
                                 <Text maw={300}>
                                     Exploring Tropica: Your Gateway to a Tropical Wonderland
                                 </Text>
-                            </Box>
+                            </Box> */}
                             <Group spacing={"md"}>
                                 <Button>DISCOVER</Button>
                                 <Button variant="outline">KNOW MORE</Button>

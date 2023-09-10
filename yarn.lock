@@ -628,6 +628,11 @@
   resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-2.32.0.tgz#872b3fef34f60b017da99a1c7f0a0379a9734f80"
   integrity sha512-w1oNvrnqFipoBEy2/0X4/IHo2aLsijuz4QRi/HizxqiaoMfmWG5X2DpEYTw9WnGvFmixpu/rtQsQAr7Wr0Mc2w==
 
+"@tiptap/core@^2.0.0-beta.116":
+  version "2.1.8"
+  resolved "https://registry.yarnpkg.com/@tiptap/core/-/core-2.1.8.tgz#4555dc7d86580dee790d4aded1ce7fb79319da70"
+  integrity sha512-QTGgqki7hkonLJ93gWqCUkD6cCAQ3rEX9gbMLwzfnegIZ+/BKLQYKYCozsEMZnMPXgdRrKuyRBOL+RH+IolMeA==
+
 "@tiptap/core@^2.1.7":
   version "2.1.7"
   resolved "https://registry.yarnpkg.com/@tiptap/core/-/core-2.1.7.tgz#9823a3712d176849cfd281dd8229ad0719c9eb9e"
@@ -764,7 +769,7 @@
   resolved "https://registry.yarnpkg.com/@tiptap/extension-text-align/-/extension-text-align-2.1.7.tgz#4f8df8296a1cd7be16db99337cdceebdbdff4fd2"
   integrity sha512-DiRvGzcFQfXotgU7CpQxgstxgu6ZUUmSVQ7pzAxg9CQHwNgKQ4uYeDabt/R/SLEeb3YfXoEScxFMbyO1ys8ZsQ==
 
-"@tiptap/extension-text-style@^2.1.8":
+"@tiptap/extension-text-style@^2.0.0-beta.17", "@tiptap/extension-text-style@^2.1.8":
   version "2.1.8"
   resolved "https://registry.yarnpkg.com/@tiptap/extension-text-style/-/extension-text-style-2.1.8.tgz#42e9fa179f76d4e88f73f2c66aee3b06162e659b"
   integrity sha512-xnx/Pq5ttt2/gOQPmqVQIBz/jo3MErtYdYk22fUaOyu1xT36X4BDJYsrLyWhcs3aWR/tv1/XylbNOFvhrDOHoQ==
@@ -4222,6 +4227,14 @@ tippy.js@^6.3.7:
   integrity sha512-E1d3oP2emgJ9dRQZdf3Kkn0qJgI6ZLpyS5z6ZkY1DF3kaQaBsGZsndEpHwx+eC+tYM41HaSNvNtLx8tU57FzTQ==
   dependencies:
     "@popperjs/core" "^2.9.0"
+
+tiptap-extension-font-size@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/tiptap-extension-font-size/-/tiptap-extension-font-size-1.2.0.tgz#dc884e2a8158819cffa4a322107de4c275aca6e0"
+  integrity sha512-akVve/bIAhAf4ze6XR4sh0qV7o7XgAoPkDGumTj4SFNtjhcH61wD97ibxWQAXchJPNAV6DdzRJiuUtEgzspjyA==
+  dependencies:
+    "@tiptap/core" "^2.0.0-beta.116"
+    "@tiptap/extension-text-style" "^2.0.0-beta.17"
 
 to-fast-properties@^2.0.0:
   version "2.0.0"
