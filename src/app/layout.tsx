@@ -1,8 +1,12 @@
+import { toastConfig } from 'react-simple-toasts';
 import RootStyleRegistry from './emotion';
 const url = process.env.IMG_URL
 const img = `${url}/img/landing.png`
 
+
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+
   return (
     <html lang="en-US">
       <head>

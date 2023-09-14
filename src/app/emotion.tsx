@@ -2,8 +2,11 @@
 
 import { CacheProvider } from '@emotion/react';
 import { useEmotionCache, MantineProvider, Notification } from '@mantine/core';
+import { Notifications } from '@mantine/notifications';
 import { useServerInsertedHTML } from 'next/navigation';
+import { toastConfig } from 'react-simple-toasts';
 
+toastConfig({ theme: 'dark' });
 export default function RootStyleRegistry({ children }: { children: React.ReactNode }) {
   const cache = useEmotionCache();
   cache.compat = true;
@@ -28,6 +31,7 @@ export default function RootStyleRegistry({ children }: { children: React.ReactN
             headings: { fontFamily: "Impact" },
           }}>
             {children}
+            <Notifications bg={"blue"}  />
           </MantineProvider>
         </CacheProvider>
       </body>
