@@ -31,7 +31,7 @@ export default function ViewAdminHome() {
                     <Title>
                         Home Admin
                     </Title>
-                    <WidgetPopListImage value={formData.img} onClick={(val) => {
+                    <WidgetPopListImage value={formData?.img} onClick={(val) => {
                         setFormData({
                             ...formData,
                             img: val

@@ -67,7 +67,7 @@ export default function ViewUpdateCategory({ id }: { id: string }) {
                         })
                     }} />
                     {/* <Box w={300} h={300}>
-                        <Image src={`/img/${dataCat.img}`} alt="" />
+                        <Image src={`/img/${dataCat?.img}`} alt="" />
                     </Box> */}
                     <Textarea minRows={6} value={dataCat.des} onChange={((val) => setDataCat({
                         ...dataCat,

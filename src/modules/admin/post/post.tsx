@@ -24,7 +24,7 @@ export default function AdminPost() {
             <Stack  >
                 {listPost && listPost.map((v, k) => <Paper withBorder my={"lg"} key={k} >
                     <Flex gap={"lg"} p={"md"} >
-                        <Image radius={200} width={100} height={100} alt="" src={`/img/${v.img}`} />
+                        <Image radius={200} width={100} height={100} alt="" src={`/img/${v?.img}`} />
                         <Stack bg={"gray.1"} w={"100%"}>
                             <Text p={"sm"} size={24}>{v.title}</Text>
                             <Stack bg={"gray.0"} p={"md"}>

@@ -62,9 +62,9 @@ export default function ViewCreatePaga() {
                 }} />
                 {/* <Text>Image</Text>
                 <Box bg={"gray.1"} w={300} h={300} pos={"relative"}>
-                    {_.isEmpty(form.img) ? <Center w={300} h={300}>
+                    {_.isEmpty(form?.img) ? <Center w={300} h={300}>
                         <MdImage size={64} />
-                    </Center> : <Image width={"100%"} src={"/img/" + form.img} alt="" />}
+                    </Center> : <Image width={"100%"} src={"/img/" + form?.img} alt="" />}
                 </Box> */}
                 <Textarea value={form.des} onChange={(val) => setForm({
                     ...form,

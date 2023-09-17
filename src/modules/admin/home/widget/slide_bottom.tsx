@@ -37,7 +37,7 @@ export default function WidgetSlideBottom() {
                 })
             }} />
             <Flex wrap={"wrap"} gap={"lg"} bg={"white"} p={"md"}>
-                {listImage.map((v, k) => <BackgroundImage key={k} w={100} h={100} src={`/img/${v.img}`} >
+                {listImage.map((v, k) => <BackgroundImage key={k} w={100} h={100} src={`/img/${v?.img}`} >
                     <Group position="right">
                         <ActionIcon onClick={() => {
                             funDeleteSlideBottom({ id: v.id }).then((v) => {

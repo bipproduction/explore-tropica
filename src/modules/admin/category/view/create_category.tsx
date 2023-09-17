@@ -62,7 +62,7 @@ export function ViewCreateCategory() {
                         })
                     }} />
                     {/* <Box w={300} h={300} bg={"gray"}>
-                        {!_.isEmpty(dataForm.img) && <Image width={"100%"} src={`/img/${dataForm.img}`} alt="" />}
+                        {!_.isEmpty(dataForm?.img) && <Image width={"100%"} src={`/img/${dataForm?.img}`} alt="" />}
                     </Box> */}
                     <Textarea onChange={(val) => setDataForm({
                         ...dataForm,
