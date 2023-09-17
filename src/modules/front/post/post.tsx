@@ -19,7 +19,7 @@ export default function ViewFrontPost({ data }: { data: any }) {
             </Flex>
             <Group position="center">
                 <Stack maw={720} spacing={"lg"} >
-                    <Title>{data.title}</Title>
+                    <Title>{data?.title}</Title>
                     <Image src={`/img/${data?.img}`} alt="" />
                     <Paper p={"md"}>
                         <Text>{data.des}</Text>

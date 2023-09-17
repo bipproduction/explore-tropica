@@ -24,7 +24,7 @@ export default function ViewLanding(
                 <Paper p={"md"}>
                     <Stack align="center" p={"lg"} spacing={"lg"} >
                         <Image radius={600} width={300} height={300} src={`/img/${dataHome?.img}`} alt="" />
-                        <Title>{dataHome.title}</Title>
+                        <Title>{dataHome?.title}</Title>
                     </Stack>
                 </Paper>
                 <Paper p={"md"}>
@@ -50,7 +50,7 @@ function WidgetHeader({ listPage }: { listPage: any[] }) {
     const router = useRouter()
     return <Header height={60} >
         <Flex justify={"end"} gap={"lg"} align={"center"} p={"sm"}>
-            {listPage.map((v, k) => <Button variant="outline" w={150} key={k} onClick={() => router.push(`/page/${v.id}`)}>{v.title}</Button>)}
+            {listPage.map((v, k) => <Button variant="outline" w={150} key={k} onClick={() => router.push(`/page/${v.id}`)}>{v?.title}</Button>)}
         </Flex>
     </Header>
 }
@@ -64,7 +64,7 @@ function WidgetBest({ listCategory }: { listCategory: any[] }) {
                 {listCategory.map((v, k) => <UnstyledButton key={k} onClick={() => router.push(`/category/${v.id}`)}>
                     <Stack align="center">
                         <Image width={200} height={200} src={`/img/${v?.img}`} alt="" radius={400} />
-                        <Text size={24} fw={"bold"}>{v.title}</Text>
+                        <Text size={24} fw={"bold"}>{v?.title}</Text>
                     </Stack>
                 </UnstyledButton>)}
             </Flex>
