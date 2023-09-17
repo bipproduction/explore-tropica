@@ -60,15 +60,15 @@ export default function ViewUpdateCategory({ id }: { id: string }) {
                         ...dataCat,
                         title: val.target.value
                     })} />
-                    <WidgetPopListImage onClick={(val) => {
+                    <WidgetPopListImage varian="circle" onClick={(val) => {
                         setDataCat({
                             ...dataCat,
                             img: val
                         })
                     }} />
-                    <Box w={300} h={300}>
+                    {/* <Box w={300} h={300}>
                         <Image src={`/img/${dataCat.img}`} alt="" />
-                    </Box>
+                    </Box> */}
                     <Textarea minRows={6} value={dataCat.des} onChange={((val) => setDataCat({
                         ...dataCat,
                         des: val.target.value

@@ -7,11 +7,19 @@ import TextAlign from '@tiptap/extension-text-align';
 import Superscript from '@tiptap/extension-superscript';
 import SubScript from '@tiptap/extension-subscript';
 import { Button, Group, Space, Stack } from '@mantine/core';
+import * as IMG from '@tiptap/extension-image'
+import { MdImage } from 'react-icons/md';
+import WidgetPopListImage from './pop_list_image';
+
+IMG.Image.configure({
+    allowBase64: true,
+    inline: true
+})
 
 // const content =
 //     '<h2 style="text-align: center;">Welcome to Mantine rich text editor</h2><p><code>RichTextEditor</code> component focuses on usability and is designed to be as simple as possible to bring a familiar editing experience to regular users. <code>RichTextEditor</code> is based on <a href="https://tiptap.dev/" rel="noopener noreferrer" target="_blank">Tiptap.dev</a> and supports all of its features:</p><ul><li>General text formatting: <strong>bold</strong>, <em>italic</em>, <u>underline</u>, <s>strike-through</s> </li><li>Headings (h1-h6)</li><li>Sub and super scripts (<sup>&lt;sup /&gt;</sup> and <sub>&lt;sub /&gt;</sub> tags)</li><li>Ordered and bullet lists</li><li>Text align&nbsp;</li><li>And all <a href="https://tiptap.dev/extensions" target="_blank" rel="noopener noreferrer">other extensions</a></li></ul>';
 
-export default function WidgetContentEditor({loading, content = "tulis sesuatu ...", onClik }: {loading: boolean, content?: string, onClik: (val: any) => void }) {
+export default function WidgetContentEditor({ text = "SAVE", loading, content = "tulis sesuatu ...", onClik }: { text?: string, loading: boolean, content?: string, onClik: (val: any) => void }) {
     const editor = useEditor({
         extensions: [
             StarterKit,
@@ -20,6 +28,7 @@ export default function WidgetContentEditor({loading, content = "tulis sesuatu .
             Superscript,
             SubScript,
             Highlight,
+            IMG.Image,
             TextAlign.configure({ types: ['heading', 'paragraph'] }),
         ],
         content,
@@ -66,6 +75,9 @@ export default function WidgetContentEditor({loading, content = "tulis sesuatu .
                         <RichTextEditor.AlignJustify />
                         <RichTextEditor.AlignRight />
                     </RichTextEditor.ControlsGroup>
+                    <WidgetPopListImage varian='icon' isIcon={true} onClick={(val) => {
+                        editor?.commands.setImage({ src: `/img/${val}` })
+                    }} />
                 </RichTextEditor.Toolbar>
 
                 <RichTextEditor.Content />
@@ -74,7 +86,7 @@ export default function WidgetContentEditor({loading, content = "tulis sesuatu .
                 <Button loading={loading} onClick={() => {
                     const d = editor?.getHTML()
                     if (d) onClik(d)
-                }}>Save</Button>
+                }}>{text}</Button>
             </Group>
         </Stack>
     );

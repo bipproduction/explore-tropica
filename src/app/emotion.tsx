@@ -31,7 +31,7 @@ export default function RootStyleRegistry({ children }: { children: React.ReactN
             headings: { fontFamily: "Impact" },
           }}>
             {children}
-            <Notifications bg={"blue"}  />
+            <Notifications  />
           </MantineProvider>
         </CacheProvider>
       </body>

@@ -2,7 +2,7 @@
 import BackButton from "@/modules/widget/back_button";
 import WidgetPopListImage from "@/modules/widget/pop_list_image";
 import { Box, Button, Center, Flex, Group, Image, Space, Stack, Text, TextInput, Textarea, Title } from "@mantine/core";
-import WidgetContentEditor from "../widget/content_editor";
+import WidgetContentEditor from "../../../widget/content_editor";
 import { MdImage } from "react-icons/md";
 import { useState } from "react";
 import _ from "lodash";
@@ -53,19 +53,19 @@ export default function ViewCreatePaga() {
                     ...form,
                     title: val.target.value
                 })} label={"Title"} placeholder="title" />
-                <WidgetPopListImage onClick={(val) => {
+                <WidgetPopListImage varian="live" onClick={(val) => {
                     setForm({
                         ...form,
                         img: val,
 
                     })
                 }} />
-                <Text>Image</Text>
-                <Box bg={"gray.1"}>
+                {/* <Text>Image</Text>
+                <Box bg={"gray.1"} w={300} h={300} pos={"relative"}>
                     {_.isEmpty(form.img) ? <Center w={300} h={300}>
                         <MdImage size={64} />
                     </Center> : <Image width={"100%"} src={"/img/" + form.img} alt="" />}
-                </Box>
+                </Box> */}
                 <Textarea value={form.des} onChange={(val) => setForm({
                     ...form,
                     des: val.target.value

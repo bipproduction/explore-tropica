@@ -11,32 +11,43 @@ import { showNotification } from '@mantine/notifications';
 export default function ViewCreateGalery() {
     const theme = useMantineTheme();
     const [img, setImg] = useState<string | null>(null)
+    const [loading, setLoading] = useState(false)
     return (
         <Stack>
-            <Flex align={"center"} gap={"lg"}>
-                <BackButton />
-                <Title>Create Image</Title>
+            <Flex align={"center"} gap={"lg"} justify={'space-between'}>
+                <Flex>
+                    <BackButton />
+                    <Title>Create Image</Title>
+                </Flex>
+                {img && <Button onClick={() => {
+                    setImg(null)
+                }}>ADD</Button>}
             </Flex>
             {img ? <Group position='center'>
                 <Stack>
                     <Box maw={720}>
-                        <Image src={`/img/${img}`} alt='' />
+                        <Image src={`${img}`} alt='' />
                     </Box>
                 </Stack>
             </Group> : <Group position='center'>
                 <Dropzone
+                    loading={loading}
                     maw={720}
                     onDrop={async (files) => {
+                        setLoading(true)
                         if (files && files[0]) {
+
                             const formData = new FormData()
                             formData.append("file", files[0])
 
-                            const d = await funCreateGalery(formData)
+                            const d: any = await funCreateGalery(formData)
+                            setLoading(false)
                             if (!d.success) return showNotification({ message: d.message })
-                            setImg(`/img/${d.data.}`)
+                            setImg(`/img/${d.data.id}.${d.data.ext}`)
                             return showNotification({ message: d.message })
 
                         } else {
+                            setLoading(false)
                             showNotification({
                                 message: "error"
                             })
@@ -76,10 +87,6 @@ export default function ViewCreateGalery() {
                     </Group>
                 </Dropzone>
             </Group>}
-
-            <Group position='right'>
-                <Button>SAVE</Button>
-            </Group>
         </Stack>
     );
 }

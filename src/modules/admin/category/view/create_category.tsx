@@ -55,15 +55,15 @@ export function ViewCreateCategory() {
                         ...dataForm,
                         title: val.target.value
                     })} placeholder="Title" title="Name" />
-                    <WidgetPopListImage onClick={(val) => {
+                    <WidgetPopListImage varian="circle" onClick={(val) => {
                         setDataForm({
                             ...dataForm,
                             img: val
                         })
                     }} />
-                    <Box w={300} h={300} bg={"gray"}>
+                    {/* <Box w={300} h={300} bg={"gray"}>
                         {!_.isEmpty(dataForm.img) && <Image width={"100%"} src={`/img/${dataForm.img}`} alt="" />}
-                    </Box>
+                    </Box> */}
                     <Textarea onChange={(val) => setDataForm({
                         ...dataForm,
                         des: val.target.value

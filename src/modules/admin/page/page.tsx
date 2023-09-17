@@ -1,12 +1,13 @@
 'use client'
 
-import { route } from "@/modules/route"
+import { routeAdmin } from "@/modules/route"
 import BackButton from "@/modules/widget/back_button"
-import { Button, Flex, Group, Stack, Title } from "@mantine/core"
+import { ActionIcon, Box, Button, Flex, Group, Menu, Stack, Text, Title } from "@mantine/core"
 import { useShallowEffect } from "@mantine/hooks"
 import { useRouter } from "next/navigation"
 import { funListPage } from "./fun/list_page"
 import { useState } from "react"
+import { MdMoreVert } from "react-icons/md"
 
 export default function AdminPage() {
     const router = useRouter()
@@ -23,13 +24,30 @@ export default function AdminPage() {
     return <>
         <Stack>
             <Group position="right">
-                <Button onClick={() => router.push(route.admin_page_create)}>Create Page</Button>
+                <Button onClick={() => router.push(routeAdmin.admin_page_create)}>Create Page</Button>
             </Group>
-            <Group>
-                <Stack>
-                    {JSON.stringify(listPage)}
-                </Stack>
-            </Group>
+            <Stack bg={"gray.1"} p={"md"}>
+                {listPage && listPage.map((v, k) => <Box key={k}>
+                    <Flex gap={"lg"}>
+                        <Menu>
+                            <Menu.Target>
+                                <ActionIcon>
+                                    <MdMoreVert />
+                                </ActionIcon>
+                            </Menu.Target>
+                            <Menu.Dropdown>
+                                <Menu.Item>
+                                    <Text>Update</Text>
+                                </Menu.Item>
+                                <Menu.Item>
+                                    <Text>Delete</Text>
+                                </Menu.Item>
+                            </Menu.Dropdown>
+                        </Menu>
+                        <Text>{v.title}</Text>
+                    </Flex>
+                </Box>)}
+            </Stack>
         </Stack>
     </>
 }

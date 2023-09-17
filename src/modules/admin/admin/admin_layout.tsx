@@ -1,8 +1,8 @@
 'use client'
-import { AppShell, Button, Header, NavLink, Navbar, ScrollArea, Title } from "@mantine/core";
+import { ActionIcon, AppShell, Button, Flex, Header, NavLink, Navbar, ScrollArea, Title } from "@mantine/core";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
-import { MdCategory, MdHome, MdImage, MdLogout, MdPages, MdPostAdd } from 'react-icons/md'
+import { MdCategory, MdHome, MdImage, MdLogout, MdPages, MdPostAdd, MdRemoveRedEye, MdWeb } from 'react-icons/md'
 
 const listmenu = [
     {
@@ -34,6 +34,12 @@ const listmenu = [
         path: "/galery",
         icon: MdImage,
         active: "//galery"
+    },
+    {
+        lable: "Media Sosial",
+        path: "/media-sosial",
+        icon: MdImage,
+        active: "//media-sosial"
     }
 ]
 
@@ -44,6 +50,11 @@ export default function ViewAdmin({ children }: { children: any }) {
     return <>
         <AppShell
             header={<Header height={60} bg={"dark"} >
+                <Flex gap={"lg"} justify={"end"} p={"sm"} align={"center"}>
+                    <ActionIcon onClick={() => router.push('/')}>
+                        <MdRemoveRedEye size={36} />
+                    </ActionIcon>
+                </Flex>
             </Header>}
             navbar={<Navbar c={"white"} bg={"gray.8"} hiddenBreakpoint="sm" hidden={!opened} width={{ sm: 200, lg: 300 }}>
                 <Navbar.Section p={"md"} >

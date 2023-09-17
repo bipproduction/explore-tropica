@@ -67,6 +67,7 @@ model Category {
   active    Boolean  @default(true)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  Post      Post[]
 }
 
 model Page {
@@ -78,4 +79,39 @@ model Page {
   active    Boolean  @default(true)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Post {
+  id         String    @id @default(cuid())
+  title      String?
+  img        String?
+  des        String
+  content    String
+  Category   Category? @relation(fields: [categoryId], references: [id])
+  active     Boolean   @default(true)
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  categoryId String?
+}
+
+model MediaSosial {
+  id        String   @id @default(cuid())
+  title     String?
+  url       String?
+  img       String?
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Home {
+  id    String  @id @default(cuid())
+  title String?
+  img   String?
+}
+
+model Slide {
+  id     String  @id @default(cuid())
+  img    String?
+  active Boolean @default(true)
 }
