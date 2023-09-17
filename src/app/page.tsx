@@ -26,14 +26,14 @@ export default async function Page() {
 
   return (
     <>
-      <ViewLanding 
-      dataHome={h} 
-      listImage={li} 
-      listCategory={lc} 
-      listPage={lp} 
-      listSlideBottom={ls}
-      listMediaSosial={lm}
-       />
-    </> 
+      <ViewLanding
+        dataHome={h}
+        listImage={li}
+        listCategory={lc}
+        listPage={lp}
+        listSlideBottom={ls}
+        listMediaSosial={lm}
+      />
+    </>
   );
 }

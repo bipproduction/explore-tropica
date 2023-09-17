@@ -23,7 +23,7 @@ export default function ViewLanding(
             <Stack>
                 <Paper p={"md"}>
                     <Stack align="center" p={"lg"} spacing={"lg"} >
-                        <Image radius={600} width={300} height={300} src={`/img/${dataHome.img}`} alt="" />
+                        <Image radius={600} width={300} height={300} src={`/img/${dataHome?.img}`} alt="" />
                         <Title>{dataHome.title}</Title>
                     </Stack>
                 </Paper>
@@ -63,7 +63,7 @@ function WidgetBest({ listCategory }: { listCategory: any[] }) {
             <Flex justify={"center"} gap={"lg"} wrap={"wrap"} align={"center"} maw={720} p={"lg"}>
                 {listCategory.map((v, k) => <UnstyledButton key={k} onClick={() => router.push(`/category/${v.id}`)}>
                     <Stack align="center">
-                        <Image width={200} height={200} src={`/img/${v.img}`} alt="" radius={400} />
+                        <Image width={200} height={200} src={`/img/${v?.img}`} alt="" radius={400} />
                         <Text size={24} fw={"bold"}>{v.title}</Text>
                     </Stack>
                 </UnstyledButton>)}
@@ -89,7 +89,7 @@ function WidgetSlideBawah({ listSlideBottom }: { listSlideBottom: any[] }) {
                 slidesToScroll={3}
             >
                 {listSlideBottom.map((v, k) => <Carousel.Slide key={k}>
-                    <Image src={`/img/${v.img}`} width={720} height={500} alt="" />
+                    <Image src={`/img/${v?.img}`} width={720} height={500} alt="" />
                 </Carousel.Slide>)}
             </Carousel>
         </Stack>
