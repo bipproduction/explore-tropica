@@ -45,7 +45,7 @@ function WidgetUpdate({ loading, data, onClick }: { loading: boolean, data: any,
         <Stack>
             <Group>
                 <Stack spacing={"lg"} bg={"gray.0"} p={"md"}>
-                    <TextInput label={"title"} value={formData.title} onChange={(val) => setFormData({
+                    <TextInput label={"title"} value={formData?.title} onChange={(val) => setFormData({
                         ...formData,
                         title: val.target.value
                     })} />

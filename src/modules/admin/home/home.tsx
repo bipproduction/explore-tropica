@@ -37,7 +37,7 @@ export default function ViewAdminHome() {
                             img: val
                         })
                     }} varian="circle" />
-                    <TextInput value={formData.title} onChange={(val) => setFormData({ ...formData, title: val.target.value })} label={"Title"} placeholder="title" />
+                    <TextInput value={formData?.title} onChange={(val) => setFormData({ ...formData, title: val.target.value })} label={"Title"} placeholder="title" />
                     <Button onClick={onUpdate}>UPDATE</Button>
                 </Stack>
             </Group>

@@ -56,7 +56,7 @@ export default function ViewUpdateCategory({ id }: { id: string }) {
             {/* {JSON.stringify(dataCat)} */}
             {!_.values(dataCat).includes("") && <Group>
                 <Stack>
-                    <TextInput value={dataCat.title} onChange={(val) => setDataCat({
+                    <TextInput value={dataCat?.title} onChange={(val) => setDataCat({
                         ...dataCat,
                         title: val.target.value
                     })} />

@@ -44,7 +44,7 @@ export default function AdminPage() {
                                 </Menu.Item>
                             </Menu.Dropdown>
                         </Menu>
-                        <Text>{v.title}</Text>
+                        <Text>{v?.title}</Text>
                     </Flex>
                 </Box>)}
             </Stack>

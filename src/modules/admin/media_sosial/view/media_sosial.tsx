@@ -53,7 +53,7 @@ function WidgetListMediaSosial() {
                             </Menu.Item>
                         </Menu.Dropdown>
                     </Menu>
-                    <Text>{v.title}</Text>
+                    <Text>{v?.title}</Text>
                 </Flex>
             </Box>)}
         </Stack>

@@ -26,7 +26,7 @@ export default function AdminPost() {
                     <Flex gap={"lg"} p={"md"} >
                         <Image radius={200} width={100} height={100} alt="" src={`/img/${v?.img}`} />
                         <Stack bg={"gray.1"} w={"100%"}>
-                            <Text p={"sm"} size={24}>{v.title}</Text>
+                            <Text p={"sm"} size={24}>{v?.title}</Text>
                             <Stack bg={"gray.0"} p={"md"}>
                                 <Text>POST</Text>
                                 {v.Post.map((v2: any, k2: any) => <Box key={k2}>
@@ -49,7 +49,7 @@ export default function AdminPost() {
                                         </Menu>
                                         <Flex gap={"lg"} >
                                             {/* <Text>{k2 + 1}</Text> */}
-                                            <Text>{v2.title}</Text>
+                                            <Text>{v2?.title}</Text>
                                         </Flex>
                                     </Flex>
                                 </Box>)}

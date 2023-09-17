@@ -49,7 +49,7 @@ export default function ViewCreatePaga() {
         <Group position="left">
 
             <Stack>
-                <TextInput value={form.title} onChange={(val) => setForm({
+                <TextInput value={form?.title} onChange={(val) => setForm({
                     ...form,
                     title: val.target.value
                 })} label={"Title"} placeholder="title" />
