@@ -3,6 +3,7 @@ import { ActionIcon, AppShell, Button, Flex, Header, NavLink, Navbar, ScrollArea
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { MdCategory, MdHome, MdImage, MdLogout, MdPages, MdPostAdd, MdRemoveRedEye, MdWeb } from 'react-icons/md'
+import { funLogout } from "./fun/logout";
 
 const listmenu = [
     {
@@ -68,7 +69,10 @@ export default function ViewAdmin({ children }: { children: any }) {
                     } />)}
                 </Navbar.Section>
                 <Navbar.Section>
-                    <Button fullWidth leftIcon={<MdLogout />} >Logout</Button>
+                    <Button onClick={async() => {
+                        const l = await funLogout()
+                        if(l) return router.push('/')
+                    }} fullWidth leftIcon={<MdLogout />} >Logout</Button>
                 </Navbar.Section>
             </Navbar>}
         >

@@ -1,0 +1,7 @@
+server { 
+    server_name daribalimice.com;
+
+	location / {
+		proxy_pass http://localhost:3000;
+	}
+}
