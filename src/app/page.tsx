@@ -1,3 +1,4 @@
+import PageMain from '@/app_modules_v2/main';
 import ViewLanding from '@/modules/front/landing/landing';
 import { funGetHome } from '@/modules/fun/get_home';
 import { funListCategory } from '@/modules/fun/list_category';
@@ -26,14 +27,15 @@ export default async function Page() {
 
   return (
     <>
-      <ViewLanding
+      {/* <ViewLanding
         dataHome={h}
         listImage={li}
         listCategory={lc}
         listPage={lp}
         listSlideBottom={ls}
         listMediaSosial={lm}
-      />
+      /> */}
+      <PageMain />
     </>
   );
 }

@@ -1,28 +1,33 @@
-import { toastConfig } from 'react-simple-toasts';
-import RootStyleRegistry from './emotion';
+import '@mantine/core/styles.css';
+import { ColorSchemeScript, MantineProvider } from '@mantine/core';
+import { theme } from '../../theme';
 const url = process.env.IMG_URL
 const img = `${url}/img/landing.png`
 
-
+export const metadata = {
+  title: 'Mantine Next.js template',
+  description: 'I am using Mantine with Next.js!',
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 
   return (
-    <html lang="en-US">
+    <html lang="en">
       <head>
-        {/* Open Graph Meta Properties */}
-        <meta property="og:title" content="EXPLORE TROPICA" />
-        <meta property="og:description" content="Exploring Tropica: Your Gateway to a Tropical Wonderland" />
-        <meta property="og:image" content={img} />
-        <meta property="og:url" content={url} />
-        <meta property="og:type" content="website" />
+        <ColorSchemeScript />
+        <link rel="shortcut icon" href="/favicon.svg" />
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
+        />
 
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:site_name" content="exploretropica.com" />
+        {/* <link href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" /> */}
+        {/* <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@100&display=swap" rel="stylesheet" /> */}
+
       </head>
       <body suppressHydrationWarning={true}>
-        <RootStyleRegistry>{children}</RootStyleRegistry>
+        <MantineProvider theme={theme}>{children}</MantineProvider>
       </body>
     </html>
   );

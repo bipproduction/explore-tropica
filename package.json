@@ -12,12 +12,10 @@
     "@emotion/react": "^11.11.1",
     "@emotion/server": "^11.11.0",
     "@hookstate/core": "^4.0.1",
-    "@mantine/carousel": "^6.0.20",
-    "@mantine/core": "^6.0.20",
-    "@mantine/dropzone": "^6.0.20",
-    "@mantine/hooks": "^6.0.20",
+    "@mantine/core": "^7.0.0",
+    "@mantine/dates": "^7.0.2",
+    "@mantine/hooks": "^7.0.2",
     "@mantine/next": "^6.0.19",
-    "@mantine/notifications": "^6.0.20",
     "@mantine/tiptap": "^6.0.20",
     "@prisma/client": "^5.2.0",
     "@tabler/icons-react": "^2.34.0",
@@ -41,6 +39,7 @@
     "@types/react-draft-wysiwyg": "^1.13.4",
     "@types/uuid": "^9.0.3",
     "autoprefixer": "10.4.15",
+    "dayjs": "^1.11.10",
     "draft-js": "^0.11.7",
     "draftjs-to-html": "^0.9.1",
     "embla-carousel-autoplay": "^8.0.0-rc12",
@@ -64,6 +63,7 @@
     "tailwindcss": "3.3.3",
     "tiptap-extension-font-size": "^1.2.0",
     "typescript": "5.2.2",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "yaml": "^2.3.2"
   }
 }
