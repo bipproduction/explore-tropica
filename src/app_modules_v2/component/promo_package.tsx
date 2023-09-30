@@ -1,4 +1,4 @@
-import { BackgroundImage, Button, Flex, Paper, SimpleGrid, Space, Stack, Text, Title } from "@mantine/core";
+import { BackgroundImage, Button, Flex, Group, Paper, SimpleGrid, Space, Stack, Text, Title } from "@mantine/core";
 import { useRouter } from "next/navigation";
 import { MdTimer, MdWhatsapp } from "react-icons/md";
 
@@ -35,15 +35,15 @@ export default function ComPromoPackage() {
                                 ].map((v, k) => <Flex key={k}  >
                                     <Flex align={"center"} gap={"md"}>
                                         <MdTimer size={24} color={'white'} />
-                                        <Text c={"white"} w={200}>{v.hari}</Text>
+                                        <Text c={"white"} >{v.hari}</Text>
                                     </Flex>
-                                    <Text c={"white"} w={100}>{v.jam}</Text>
+                                    <Text c={"white"} >{v.jam}</Text>
                                 </Flex>)}
                                 <Space p={"lg"} />
-                                <Button bg={"white"} onClick={() => router.push(`https://wa.me/${phoneWa}`)}>
-                                    <Flex gap={"md"} align={"center"} c='green' p={"md"}  >
+                                <Button bg={"white"} onClick={() => router.push(`https://wa.me/${phoneWa}`)} >
+                                    <Flex gap={"md"} align={"center"} c='green' p={"md"}   >
                                         <MdWhatsapp size={24} />
-                                        <Title order={3}>+6281217205656 [24 Hour]</Title>
+                                        <Title order={3}>+6281217205656</Title>
                                     </Flex>
                                 </Button>
                             </Stack>

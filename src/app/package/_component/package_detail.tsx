@@ -14,8 +14,8 @@ export default function ComPackageDetail({ data }: { data: any }) {
                 </ActionIcon>
             </Flex>
             <Group justify="center">
-                <Stack maw={720}>
-                    <Image src={data.img} alt="" height={500} />
+                <Stack maw={720} p={"md"}>
+                    <Image src={(data.img as string).replace('/img/', '/')} alt="" height={500} />
                     <Title>{data.title}</Title>
                     {parse(data.des)}
                 </Stack>
