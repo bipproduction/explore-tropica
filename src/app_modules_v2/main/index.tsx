@@ -1,9 +1,14 @@
 'use client'
-import '@mantine/core/styles.css'
-import '@mantine/dates/styles.css'
-import { Button, Flex, Group, Image, Paper, Select, SimpleGrid, Space, Stack, Table, Text, TextInput, Textarea, Title } from "@mantine/core";
-import { DateInput } from '@mantine/dates';
-import { MdDateRange, MdPeople } from "react-icons/md";
+import { BackgroundImage, Button, Flex, Group, Image, Paper, SimpleGrid, Space, Stack, Text, Title } from "@mantine/core";
+import '@mantine/core/styles.css';
+import '@mantine/dates/styles.css';
+import { useShallowEffect } from '@mantine/hooks';
+import { useState } from 'react';
+import { MdTimer, MdWhatsapp } from "react-icons/md";
+import ComFormOrder from '../component/form_order';
+import ComBestPackage from "../component/best_package";
+import ComKetentuan from "../component/ketentuan";
+import ComPromoPackage from "../component/promo_package";
 
 const listNemu = [
     "PAKET PROMO",
@@ -16,8 +21,7 @@ const listNemu = [
     "BOOKING",
 ]
 
-const listDewasa = Array.from(new Array(50), (v, k) => `${k + 1} Dewasa`)
-const listAnak = Array.from(new Array(50), (v, k) => `${k + 1} Anak`)
+
 
 const listPaket = [
     {
@@ -131,7 +135,13 @@ const listPaket = [
 ]
 
 
-export default function PageMain() {
+export default function PageMain({ data }: { data: any[] }) {
+    const isClient = useState(false)
+    useShallowEffect(() => {
+        if (window) return isClient[1](true)
+    }, [])
+
+    if (!isClient[0]) return <></>
     return <>
         <Stack >
             <Flex p={"sm"} bg={"blue"} gap={"sm"} wrap={"wrap"} align={"center"} justify={"center"}>
@@ -140,14 +150,14 @@ export default function PageMain() {
                     {v}
                 </Button>)}
             </Flex>
-            <SimpleGrid cols={{
+            <SimpleGrid py={70} cols={{
                 base: 1,
                 sm: 1,
                 lg: 2
             }} p={"md"}>
                 <Paper bg={"blue"} shadow="sm" withBorder>
                     <Image height={400} width={"100%"} src={'/tour/nusa_penida.png'} alt="" />
-                    <Stack gap={"lg"} p={"md"}>
+                    <Stack gap={"lg"} p={"md"} px={70} py={70}>
                         <Title c={"white"} fs={"24"} fw={"bold"}>
                             Promo Paket liburan Bali 4 Hari 3 Malam Termasuk Hotel dan Tour Nusa Penida
                         </Title>
@@ -166,28 +176,9 @@ export default function PageMain() {
                 </Paper>
                 <Paper bg={"gray.1"}>
                     <Image width={"100%"} height={400} src={"/tour/rafting.png"} alt="" />
-                    <Group>
-                        <Stack gap={"lg"} p={"md"}>
-                            <Title>Pesan Tour Sekarang</Title>
-                            <DateInput placeholder="Pilih Tanggal" rightSection={<MdDateRange />} label={"Tanggal Tour"} />
-                            <Flex gap={"md"}>
-                                <Select placeholder="Pilih Paket" data={listDewasa} label={"jumlah dewasa"} rightSection={<MdPeople />} />
-                                <Select placeholder="Pilih Paket" data={listAnak} label={"jumlah anak"} rightSection={<MdPeople />} />
-                            </Flex>
-                            <TextInput placeholder="Nama" label={"Nama (Wajib Diisi)"} />
-                            <TextInput placeholder="Email" label={"Email (Wajib Diisi)"} />
-                            <TextInput placeholder="Kota Asal" label={"Kota Asal"} />
-                            <TextInput placeholder="Phone" label={"Phone (Wajib Diisi)"} />
-                            <Textarea autosize label={"Info Tambahan"} minRows={8} />
-                            <Text>
-                                PENTING : Harap mengisi dengan data yang benar, email yang valid dan nomor telepon aktif yang dapat dihubungi.
-                            </Text>
-                            <Group>
-                                <Button radius={100} >
-                                    PESAN SEKARANG
-                                </Button>
-                            </Group>
-                        </Stack>
+                    <Group py={70}>
+                        {/* disini form order */}
+                        <ComFormOrder />
                     </Group>
                 </Paper>
             </SimpleGrid>
@@ -199,8 +190,8 @@ export default function PageMain() {
                 }}>
                     <Paper withBorder pos={"relative"}>
                         <Image radius={8} height={500} src={"/tour/atv.png"} alt='' />
-                        <Stack gap={"lg"}>
-                            <Stack p={"md"}>
+                        <Stack gap={"lg"} py={70}>
+                            <Stack p={"md"} px={50}>
                                 <Stack>
                                     <Title>
                                         Jadwal Paket Liburan Bali 4 Hari 3 malam ( Terlaris )
@@ -219,7 +210,7 @@ export default function PageMain() {
                     </Paper>
                     <Paper withBorder pos={"relative"}>
                         <Image radius={8} height={500} src={"/tour/sepeda.png"} alt='' />
-                        <Stack p={"md"}>
+                        <Stack p={"md"} px={"50"} py={70}>
                             {listPaket.slice(4).map((v, k) => <Stack key={k} gap={0}>
                                 <Title order={3}>{v.title}</Title>
                                 {v.data.map((v2, k2) => <Text c={"gray"} key={k2}>{v2}</Text>)}
@@ -229,34 +220,20 @@ export default function PageMain() {
                     </Paper>
                 </SimpleGrid>
             </Stack>
-            <Group p={"md"}>
-                <Paper p={"md"} bg={"blue"}>
-                    <Stack gap={"md"}>
-                        <Stack gap={0}>
-                            <Title c={"white"}>Ketentuan</Title>
-                            {[
-                                "PROMO Hingga Desember 2023 ( 24 desember – 10 Januhari 2023 kena surcharge room 350rb/room/night )",
-                                "Harga di atas berdasarkan per orang untuk harga inclusive",
-                                "Harus Memesan satu hari sebelum Muka",
-                                "Untuk pemesanan di butuhkan deposit untuk memastikan pesanan dan booking hotel",
-                                "Konfirmasi pemesanan tidak bisa tanpa adanya bukti pembayaran tertulis yang sudah di validasi yang dikirimkan ke Bali Tripon",
-                                "Harga Tidak berlaku untuk High season",
-                            ].map((v, k) => <Text c={"gray.2"} key={k}>- {v}</Text>)}
-                        </Stack>
-                        <Stack gap={0}>
-                            <Title order={3} c={"white"}>
-                                Cara Pemesanan Paket liburan Bali 4 Hari 3 Malam Termasuk Hotel
-                            </Title>
-                            {[
-                                "Silahkan kirim permintaan melalui Form Pemesanan",
-                                "Pemesanan minimal dilakukan sehari sebelumnya.",
-                                "Dan pemesanan dadakan silahkan hubungi kami via Whatsapp +6281217205656",
-                                "Jika pemesanan paket wisata melalui email balitripon@gmail.com akan di balas secepatnya sesuai hari dan Jam Kerja ( senin – sabtu pukul 8.00 am sampai 18.00 pm )",
-                            ].map((v, k) => <Text c={"gray.2"} key={k}>- {v}</Text>)}
-                        </Stack>
-                    </Stack>
-                </Paper>
-            </Group>
+
+            {/* promo package tour */}
+            <ComPromoPackage />
+            {/* List best Package */}
+            <ComBestPackage data={data} />
+            {/* ketentuan */}
+            <ComKetentuan />
+            <Paper py={"75"} bg={"gray.4"}>
+                <Stack p={"lg"} align='center'>
+                    <Text>Copyright © 2023 Explore Tropica</Text>
+                    <Text>Tentang Kami | Syarat & Ketentuan | Testimoni</Text>
+                    <Text>Managed by Makuro Studio & Explore Tropica</Text>
+                </Stack>
+            </Paper>
         </Stack>
     </>
 }

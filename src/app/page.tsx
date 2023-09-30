@@ -1,19 +1,8 @@
 import PageMain from '@/app_modules_v2/main';
-
-import { unsealData } from 'iron-session';
-import _ from 'lodash';
-import { cookies } from 'next/headers';
-
+import prisma from '../../modules/bin/prisma';
 export default async function Page() {
-  async function isUser() {
-    const c = cookies().get('_xt')
-    if (!c || !c.value || _.isEmpty(c.value)) return false
-    const userId = await unsealData(c.value, { password: process.env.PWD as any })
-    return userId !== null || userId !== ""
-  }
-
-
-
+ 
+  const data = await prisma.content.findMany()
   return (
     <>
       {/* <ViewLanding
@@ -24,7 +13,10 @@ export default async function Page() {
         listSlideBottom={ls}
         listMediaSosial={lm}
       /> */}
-      <PageMain />
+      {/* <pre>
+      {JSON.stringify(data, null, 2)}
+      </pre> */}
+      <PageMain data={data} />
     </>
   );
 }
