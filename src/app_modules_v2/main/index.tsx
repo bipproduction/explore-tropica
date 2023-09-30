@@ -9,6 +9,7 @@ import ComFormOrder from '../component/form_order';
 import ComBestPackage from "../component/best_package";
 import ComKetentuan from "../component/ketentuan";
 import ComPromoPackage from "../component/promo_package";
+import ComFooter from "../component/footer";
 
 const listNemu = [
     "PAKET PROMO",
@@ -227,13 +228,8 @@ export default function PageMain({ data }: { data: any[] }) {
             <ComBestPackage data={data} />
             {/* ketentuan */}
             <ComKetentuan />
-            <Paper py={"75"} bg={"gray.4"}>
-                <Stack p={"lg"} align='center'>
-                    <Text>Copyright © 2023 Explore Tropica</Text>
-                    <Text>Tentang Kami | Syarat & Ketentuan | Testimoni</Text>
-                    <Text>Managed by Makuro Studio & Explore Tropica</Text>
-                </Stack>
-            </Paper>
+            {/* footer */}
+            <ComFooter />
         </Stack>
     </>
 }
