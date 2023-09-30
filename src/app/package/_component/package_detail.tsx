@@ -17,7 +17,7 @@ export default function ComPackageDetail({ data }: { data: any }) {
                 <Stack maw={720} p={"md"}>
                     <Image src={(data.img as string).replace('/img/', '/images/')} alt="" height={500} />
                     <Title>{data.title}</Title>
-                    {parse(data.des)}
+                    {parse((data.des as string).replace('+6287765344998', '').replace('/', '').replace('reservationexploretropica@gmail.com', 'suryabisnisakun@gmail.com'))}
                 </Stack>
             </Group>
         </Stack>

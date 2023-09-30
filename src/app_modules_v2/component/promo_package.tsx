@@ -1,6 +1,6 @@
 import { BackgroundImage, Button, Flex, Group, Paper, SimpleGrid, Space, Stack, Text, Title } from "@mantine/core";
 import { useRouter } from "next/navigation";
-import { MdTimer, MdWhatsapp } from "react-icons/md";
+import { MdEmail, MdTimer, MdWhatsapp } from "react-icons/md";
 
 export default function ComPromoPackage() {
     const router = useRouter()
@@ -43,7 +43,19 @@ export default function ComPromoPackage() {
                                 <Button bg={"white"} onClick={() => router.push(`https://wa.me/${phoneWa}`)} >
                                     <Flex gap={"md"} align={"center"} c='green' p={"md"}   >
                                         <MdWhatsapp size={24} />
-                                        <Title order={3}>+6281217205656</Title>
+                                        <Title order={4}>+6281217205656</Title>
+                                    </Flex>
+                                </Button>
+                                <Button bg={"white"} onClick={() => router.push(`https://wa.me/6281338137061`)} >
+                                    <Flex gap={"md"} align={"center"} c='green' p={"md"}   >
+                                        <MdWhatsapp size={24} />
+                                        <Title order={4}>+6281338137061</Title>
+                                    </Flex>
+                                </Button>
+                                <Button bg={"white"} onClick={() => router.push(`https://mail.google.com/mail/u/0/?view=cm&tf=1&fs=1&to=suryabisnisakun@gmail.com`)} >
+                                    <Flex gap={"md"} align={"center"} c='green' p={"md"}   >
+                                        <MdEmail size={24} />
+                                        <Title order={4}>suryabisnisakun@gmail.com</Title>
                                     </Flex>
                                 </Button>
                             </Stack>
