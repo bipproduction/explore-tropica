@@ -13,7 +13,7 @@ export default function ComKetentuan() {
                             "Harga di atas berdasarkan per orang untuk harga inclusive",
                             "Harus Memesan satu hari sebelum Muka",
                             "Untuk pemesanan di butuhkan deposit untuk memastikan pesanan dan booking hotel",
-                            "Konfirmasi pemesanan tidak bisa tanpa adanya bukti pembayaran tertulis yang sudah di validasi yang dikirimkan ke Bali Tripon",
+                            "Konfirmasi pemesanan tidak bisa tanpa adanya bukti pembayaran tertulis yang sudah di validasi yang dikirimkan ke Explore Tropica",
                             "Harga Tidak berlaku untuk High season",
                         ].map((v, k) => <Text c={"gray.2"} key={k}>- {v}</Text>)}
                     </Stack>
@@ -25,7 +25,7 @@ export default function ComKetentuan() {
                             "Silahkan kirim permintaan melalui Form Pemesanan",
                             "Pemesanan minimal dilakukan sehari sebelumnya.",
                             `Dan pemesanan dadakan silahkan hubungi kami via Whatsapp +${phoneWa}`,
-                            "Jika pemesanan paket wisata melalui email exploretropica@gmail.com akan di balas secepatnya sesuai hari dan Jam Kerja ( senin – sabtu pukul 8.00 am sampai 18.00 pm )",
+                            "Jika pemesanan paket wisata melalui email suryabisnisakun@gmail.com akan di balas secepatnya sesuai hari dan Jam Kerja ( senin – sabtu pukul 8.00 am sampai 18.00 pm )",
                         ].map((v, k) => <Text c={"gray.2"} key={k}>- {v}</Text>)}
                     </Stack>
                 </Stack>

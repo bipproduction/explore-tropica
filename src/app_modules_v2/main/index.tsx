@@ -163,7 +163,7 @@ export default function PageMain({ data }: { data: any[] }) {
                             Promo Paket liburan Bali 4 Hari 3 Malam Termasuk Hotel dan Tour Nusa Penida
                         </Title>
                         <Text c={"gray.2"}>
-                            Halo sobat travel, mau liburan ke Bali tapi bingung dengan harga dan bagaimana menyusun liburan biar lebih murah? Sekarang sobat tidak perlu bingung karena kami Bali Tripon sudah menyiapkan harga Promo Paket Liburan Bali 4 hari 3 malam. Promo paket ini sudah termasuk hotel dan tour selama di Bali.
+                            Halo sobat travel, mau liburan ke Bali tapi bingung dengan harga dan bagaimana menyusun liburan biar lebih murah? Sekarang sobat tidak perlu bingung karena kami Explore Tropica sudah menyiapkan harga Promo Paket Liburan Bali 4 hari 3 malam. Promo paket ini sudah termasuk hotel dan tour selama di Bali.
 
                             Paket tour ini kami sediakan dalam rangka menyambut dibukanya kembali pariwisata bali. Dimana anda akan dijemput dari bandara bali dengan layanan private. Dan langsung diantar ke hotel dulu untuk check-in, sebelum melanjutkan tour ke Bali Selatan, untuk hari pertama.
 

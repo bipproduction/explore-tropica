@@ -23,7 +23,7 @@ export default function ComPromoPackage() {
                     <Stack align='end'>
                         <Paper p={"md"} bg={"blue"}>
                             <Stack>
-                                <Title c={"white"}>OPERATIONAL</Title>
+                                <Title c={"white"}>OPERATIONAL 7 Days Weeks</Title>
                                 {[
                                     { "hari": "SENIN", "jam": "08.00 - 21.00" },
                                     { "hari": "SELASA", "jam": "08.00 - 21.00" },
@@ -43,10 +43,10 @@ export default function ComPromoPackage() {
                                 <Button bg={"white"} onClick={() => router.push(`https://wa.me/${phoneWa}`)} >
                                     <Flex gap={"md"} align={"center"} c='green' p={"md"}   >
                                         <MdWhatsapp size={24} />
-                                        <Title order={4}>+6281217205656</Title>
+                                        <Title order={4}>+6281252272867</Title>
                                     </Flex>
                                 </Button>
-                                <Button bg={"white"} onClick={() => router.push(`https://wa.me/6281338137061`)} >
+                                <Button bg={"white"} onClick={() => router.push(`https://wa.me/6281252272867`)} >
                                     <Flex gap={"md"} align={"center"} c='green' p={"md"}   >
                                         <MdWhatsapp size={24} />
                                         <Title order={4}>+6281338137061</Title>
